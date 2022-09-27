@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 public class RequestDTO {
     private LocationDTO location;
-    private int itemNumber;
-    private int quantity;
+    private int[] itemNumber;
 }
