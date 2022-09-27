@@ -10,9 +10,10 @@ public class PricingService {
 
     Random rand = new Random();
 
-    public JSONObject getPricing(String itemNumber) throws JSONException {
+    private JSONObject spoofPrices(String itemNumber) throws JSONException {
         JSONObject priceResponse = new JSONObject();
         JSONObject itemInfo = new JSONObject();
+        JSONObject priceType = new JSONObject();
         Double listPrice = rand.nextDouble();
         Double listPriceQuant = rand.nextInt(20)*5.0;
 
@@ -30,7 +31,18 @@ public class PricingService {
         itemInfo.put("list_price_uom", "ST");
         itemInfo.put("uom_numerator", 1);
         itemInfo.put("uom_denominator", 1);
-        priceResponse.put("price", itemInfo);
+        priceType.put("standard", itemInfo);
+        priceResponse.put("price", priceType);
         return priceResponse;
+    }
+
+    public String getPrice(String itemNumber) throws JSONException {
+        JSONObject priceResponse;
+        String price = "";
+
+        priceResponse = spoofPrices(itemNumber);
+        price = priceResponse.getJSONObject("standard").getString(price);
+
+        return price;
     }
 }
