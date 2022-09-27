@@ -1,5 +1,6 @@
 package com.example.eb2bpublicstockapi.service;
 
+import com.example.eb2bpublicstockapi.DTO.ItemDTO;
 import com.example.eb2bpublicstockapi.DTO.RequestDTO;
 import com.example.eb2bpublicstockapi.DTO.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,14 @@ public class StockService {
 
     public List<ResponseDTO> getStock(RequestDTO requestDTO) throws JSONException {
         List<ResponseDTO> list = new ArrayList<>();
-        requestDTO.getItemNumber();
-        for (String itemNumber: requestDTO.getItemNumber()) {
+       for (String item: requestDTO.getItemNumber()) {
             ResponseDTO responseDTO = new ResponseDTO();
-            responseDTO.setItemNumber(itemNumber);
-            responseDTO.setAvailableQuantity(quantityService.getQuantity(itemNumber));
-            responseDTO.setPrice(pricingService.getPrice(itemNumber));
-            responseDTO.setObsolete(toolService.getStatus());
+          responseDTO.setItemNumber(item);
+            responseDTO.setAvailableQuantity(quantityService.getQuantity(item));
+            responseDTO.setPrice(pricingService.getPrice(item));
+           responseDTO.setObsolete(toolService.getStatus());
             list.add(responseDTO);
-        }
+      }
 
         return list;
     }
