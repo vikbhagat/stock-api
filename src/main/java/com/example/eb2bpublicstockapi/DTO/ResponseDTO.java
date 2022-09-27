@@ -8,5 +8,5 @@ import lombok.Setter;
 public class ResponseDTO {
     private String itemNumber;
     private boolean obsolete;
-    private String currentStock;
+    private String availableQuantity;
 }
