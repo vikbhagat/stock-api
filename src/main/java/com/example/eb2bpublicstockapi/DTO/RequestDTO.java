@@ -8,4 +8,5 @@ import lombok.Setter;
 public class RequestDTO {
     private LocationDTO location;
     private int[] itemNumber;
+    private int requestedQuantity;
 }
