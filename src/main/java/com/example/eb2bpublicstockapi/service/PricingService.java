@@ -1,11 +1,11 @@
 package com.example.eb2bpublicstockapi.service;
 
-
+import org.springframework.stereotype.Component;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import java.util.Random;
-
+@Component
 public class PricingService {
 
     Random rand = new Random();
@@ -36,10 +36,10 @@ public class PricingService {
 
     public String getPrice(String itemNumber) throws JSONException {
         JSONObject priceResponse;
-        String price = "";
+        String price = "list_price";
 
         priceResponse = spoofPrices(itemNumber);
-        price = priceResponse.getJSONObject("standard").getString(price);
+        price = priceResponse.getJSONObject("price").getJSONObject("standard").getString(price);
 
         return price;
     }
