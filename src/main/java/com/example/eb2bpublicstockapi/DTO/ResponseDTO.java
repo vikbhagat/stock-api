@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class ResponseDTO {
     private String itemNumber;
-    private String location;
+    private LocationDTO location;
     private boolean available;
-    private boolean currentStock;
+    private int currentStock;
 }
