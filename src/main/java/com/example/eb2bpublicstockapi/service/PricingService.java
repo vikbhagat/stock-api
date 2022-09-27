@@ -24,8 +24,8 @@ public class PricingService {
         itemInfo.put("sales_uom", "ST");
         itemInfo.put("quantity", 1.0);
         itemInfo.put("minimum_order_quantity", 25.0);
-        itemInfo.put("list_price", listPrice.toString());
-        itemInfo.put("list_price_quantity", listPriceQuant.toString());
+        itemInfo.put("list_price", listPrice.toString(2));
+        itemInfo.put("list_price_quantity", listPriceQuant.toString(2));
         itemInfo.put("list_price_uom", "ST");
         itemInfo.put("uom_numerator", 1);
         itemInfo.put("uom_denominator", 1);
