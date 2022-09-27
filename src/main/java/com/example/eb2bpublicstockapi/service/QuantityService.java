@@ -6,12 +6,10 @@ import java.util.Random;
 
 @Component
 public class QuantityService {
-    public String getquantity(String itemNumber) {
-        Random rand = new Random(); //instance of random class
+    public String getQuantity(String itemNumber) {
+        Random rand = new Random();
         int upperbound = 25;
-        //generate random values from 0-24
         int int_random = rand.nextInt(upperbound);
-
         return String.valueOf(int_random);
     }
 }

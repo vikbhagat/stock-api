@@ -14,13 +14,19 @@ public class StockService {
 
     @Autowired QuantityService quantityService;
 
+    @Autowired PricingService pricingService;
+
+    @Autowired ToolService toolService;
+
     public List<ResponseDTO> getStock(RequestDTO requestDTO) {
         List<ResponseDTO> list = new ArrayList<>();
         requestDTO.getItemNumber();
         for (String itemNumber: requestDTO.getItemNumber()) {
             ResponseDTO responseDTO = new ResponseDTO();
             responseDTO.setItemNumber(itemNumber);
-            responseDTO.setAvailableQuantity(quantityService.getquantity(itemNumber));
+            responseDTO.setAvailableQuantity(quantityService.getQuantity(itemNumber));
+            responseDTO.setPrice(pricingService.getPricing());
+            responseDTO.setObsolete(toolService.getStatus());
             list.add(responseDTO);
         }
 
