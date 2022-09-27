@@ -3,6 +3,7 @@ package com.example.eb2bpublicstockapi.controller;
 import com.example.eb2bpublicstockapi.DTO.RequestDTO;
 import com.example.eb2bpublicstockapi.DTO.ResponseDTO;
 import com.example.eb2bpublicstockapi.service.StockService;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class StockController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Stock data",
+            notes = "This method returns stock data for a given area and item numbers")
     public  @ResponseBody List<ResponseDTO> requestCatalog(RequestDTO requestDTO) {
 
         return  stockService.getStock(requestDTO);
