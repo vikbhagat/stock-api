@@ -9,4 +9,5 @@ public class ResponseDTO {
     private String itemNumber;
     private boolean obsolete;
     private String availableQuantity;
+    private String price;
 }
