@@ -12,9 +12,14 @@ public class StockService {
 
 
     public List<ResponseDTO> getStock(RequestDTO requestDTO) {
-        ResponseDTO responseDTO = new ResponseDTO();
         List<ResponseDTO> list = new ArrayList<>();
-        list.add(responseDTO);
+        requestDTO.getItemNumber();
+        for (int itemNumber: requestDTO.getItemNumber()) {
+            ResponseDTO responseDTO = new ResponseDTO();
+            responseDTO.setItemNumber(String.valueOf(itemNumber));
+            list.add(responseDTO);
+        }
+
         return list;
     }
 }
