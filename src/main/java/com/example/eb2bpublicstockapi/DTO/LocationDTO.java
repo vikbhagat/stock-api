@@ -7,7 +7,9 @@ import lombok.Setter;
 @Setter
 public class LocationDTO {
     private String locationName;
-    private int plantNumber;
+    private String street;
+    private String postalCode;
     private String country;
+    private String state;
 
 }
