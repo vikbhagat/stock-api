@@ -1,6 +1,5 @@
 package com.example.eb2bpublicstockapi.service;
 
-import com.example.eb2bpublicstockapi.DTO.ItemDTO;
 import com.example.eb2bpublicstockapi.DTO.RequestDTO;
 import com.example.eb2bpublicstockapi.DTO.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
