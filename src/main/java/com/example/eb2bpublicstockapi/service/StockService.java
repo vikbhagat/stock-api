@@ -23,16 +23,15 @@ public class StockService {
 
     public List<ResponseDTO> getStock(RequestDTO requestDTO) throws JSONException {
         List<ResponseDTO> list = new ArrayList<>();
-       for (String item: requestDTO.getItemNumber()) {
+        for (int i = 0; i <requestDTO.getItemDto().size() ; i++) {
             ResponseDTO responseDTO = new ResponseDTO();
-          responseDTO.setItemNumber(item);
-            responseDTO.setAvailableQuantity(quantityService.getQuantity(item));
-            responseDTO.setPrice(pricingService.getPrice(item));
-           responseDTO.setObsolete(toolService.getStatus());
-           responseDTO.setRestockDate(spoofService.getSpoofDateResponse());
+            responseDTO.setItemNumber(requestDTO.getItemDto().get(i).getItemNumber());
+            responseDTO.setAvailableQuantity(quantityService.getQuantity(requestDTO.getItemDto().get(i).getItemNumber()));
+            responseDTO.setPrice(pricingService.getPrice(requestDTO.getItemDto().get(i).getItemNumber()));
+            responseDTO.setObsolete(toolService.getStatus());
+            responseDTO.setRestockDate(spoofService.getSpoofDateResponse());
             list.add(responseDTO);
-      }
-
+        }
         return list;
     }
 

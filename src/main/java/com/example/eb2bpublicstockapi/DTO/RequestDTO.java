@@ -24,7 +24,6 @@ public class RequestDTO {
     private String country;
     @ApiModelProperty(name = "State", dataType = "String", example = "TX")
     private String state;
-    private List<String> itemNumber;
-    private List<String> quantity;
+    private List<ItemDTO> itemDto;
 
 }

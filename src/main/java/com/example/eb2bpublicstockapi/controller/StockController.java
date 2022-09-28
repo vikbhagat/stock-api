@@ -11,6 +11,7 @@ import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -34,7 +35,7 @@ public class StockController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Stock data",
             notes = "This method returns stock data for a given area and item numbers")
-    public  @ResponseBody List<ResponseDTO> requestCatalog(RequestDTO requestDTO) throws JSONException {
+    public  @ResponseBody List<ResponseDTO> requestCatalog(@RequestBody RequestDTO requestDTO) throws JSONException {
 
         return  stockService.getStock(requestDTO);
     }
