@@ -19,6 +19,8 @@ public class StockService {
 
     @Autowired ToolService toolService;
 
+    @Autowired DataSpoofingService spoofService;
+
     public List<ResponseDTO> getStock(RequestDTO requestDTO) throws JSONException {
         List<ResponseDTO> list = new ArrayList<>();
        for (String item: requestDTO.getItemNumber()) {
@@ -27,9 +29,12 @@ public class StockService {
             responseDTO.setAvailableQuantity(quantityService.getQuantity(item));
             responseDTO.setPrice(pricingService.getPrice(item));
            responseDTO.setObsolete(toolService.getStatus());
+           responseDTO.setRestockDate(spoofService.getSpoofDateResponse());
             list.add(responseDTO);
       }
 
         return list;
     }
+
+
 }
